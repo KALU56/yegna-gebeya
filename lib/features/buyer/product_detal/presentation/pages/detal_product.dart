@@ -37,12 +37,13 @@ class ProductDetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              product.name,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
+            product.name,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryColor, // ✅ primary color
             ),
+          ),
             const SizedBox(height: 8),
           
             Text(
@@ -52,10 +53,11 @@ class ProductDetailScreen extends StatelessWidget {
             const SizedBox(height: 16),
               Text(
               "ETB ${product.price}",
-              style: const TextStyle(
-                fontSize: 18,
-                color: Colors.grey,
-              ),
+               style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryColor, // ✅ primary color
+            ),
             ),
             
           ],
