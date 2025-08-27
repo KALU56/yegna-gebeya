@@ -8,7 +8,10 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(product.name)),
+      appBar: AppBar(
+        automaticallyImplyLeading: true, 
+        title: const SizedBox.shrink(),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -41,18 +44,20 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
+          
             Text(
+              product.description ?? "No description available.",
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+              Text(
               "ETB ${product.price}",
               style: const TextStyle(
                 fontSize: 18,
                 color: Colors.grey,
               ),
             ),
-            const SizedBox(height: 16),
-            Text(
-              product.description ?? "No description available.",
-              style: const TextStyle(fontSize: 16),
-            ),
+            
           ],
         ),
       ),
