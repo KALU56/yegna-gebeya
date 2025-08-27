@@ -16,4 +16,6 @@ class Routes {
   static const String buyerHome = '/home';
   static const String sellerProfile = '/sellerProfile';
   static const String sellerList = '/sellers';
+static const String productDetails = '/productDetails';
+
 }

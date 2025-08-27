@@ -275,7 +275,12 @@ class _HomeState extends State<Home> {
                           itemCount: products.length,
                           itemBuilder: (context, index) {
                             final product = products[index];
-                            return ProductCard(product: product, onTap: () {});
+                            return ProductCard(
+                              product: product,
+                              onTap: () {
+                                context.goNamed('productDetails', extra: product);
+                              },
+                            );
                           },
                         );
                       },
