@@ -41,8 +41,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.product.name),
-        backgroundColor: purpleColor,
+     
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
