@@ -4,6 +4,7 @@ import 'package:yegna_gebeya/features/auth/presentation/pages/sign_in_page.dart'
 import 'package:yegna_gebeya/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:yegna_gebeya/features/buyer/home/presentation/pages/home.dart';
 import 'package:yegna_gebeya/features/buyer/cart/presentation/pages/checkout_page.dart';
+import 'package:yegna_gebeya/features/buyer/home/presentation/pages/product_detail_page.dart';
 import 'package:yegna_gebeya/features/buyer/order/presentation/pages/order_history_page.dart';
 import 'package:yegna_gebeya/features/buyer/seller_profile/presentation/pages/seller_list_page.dart';
 import 'package:yegna_gebeya/features/buyer/seller_profile/presentation/pages/seller_profile_page.dart';
@@ -11,6 +12,7 @@ import 'package:yegna_gebeya/features/landing/presentation/pages/landing_page.da
 import 'package:yegna_gebeya/features/seller/order/presentation/pages/orders_page.dart';
 import 'package:yegna_gebeya/features/seller/product/presentation/pages/product_page.dart';
 import 'package:yegna_gebeya/features/seller/product/presentation/pages/product_upload_page.dart';
+import 'package:yegna_gebeya/shared/domain/models/product.dart';
 import 'package:yegna_gebeya/shared/domain/models/user.dart';
 import 'package:yegna_gebeya/shared/profile/presentation/pages/profile_page.dart';
 
@@ -75,5 +77,12 @@ final goRouter = GoRouter(
         return SellerProfilePage(params: state.extra as Map<String, dynamic>);
       },
     ),
+    GoRoute(
+  path: '/product/:id',
+  builder: (context, state) {
+    final product = state.extra as Product;
+    return ProductDetailPage(product: product);
+  },
+),
   ],
 );
