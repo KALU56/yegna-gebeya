@@ -40,9 +40,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     const purpleColor = Color(0xFF8D00DE);
 
     return Scaffold(
-      appBar: AppBar(
-     
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -133,10 +131,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     onPressed: () {
                       // TODO: Add checkout logic
                     },
-                    icon: const Icon(Icons.payment),
                     label: const Text("Checkout"),
+                    icon: const Icon(Icons.payment),
+                    
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 136, 134, 138),
+                      backgroundColor:  Colors.purple,
+                      foregroundColor: Colors.white, // Text & icon color
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -148,10 +148,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     onPressed: () {
                       // TODO: Add to cart logic
                     },
-                    icon: const Icon(Icons.add_shopping_cart),
                     label: const Text("Add to Cart"),
+                    icon: const Icon(Icons.add_shopping_cart),
+                    
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.purple, // Text & icon color
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
