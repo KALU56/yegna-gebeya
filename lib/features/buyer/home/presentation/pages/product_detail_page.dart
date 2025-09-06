@@ -16,6 +16,12 @@ class ProductDetailPage extends StatefulWidget {
 class _ProductDetailPageState extends State<ProductDetailPage> {
   User? seller;
 
+  // Define colors once
+  final Color primaryColor = const Color(0xFF8D00DE);
+  final Color checkoutButtonColor = Colors.purple;
+  final Color addToCartButtonColor = Colors.white;
+  final Color addToCartTextColor = Colors.purple;
+
   @override
   void initState() {
     super.initState();
@@ -37,8 +43,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    const purpleColor = Color(0xFF8D00DE);
-
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -99,7 +103,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               style: GoogleFonts.sarpanch(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: purpleColor,
+                color: primaryColor,
               ),
             ),
             const SizedBox(height: 8),
@@ -117,10 +121,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               style: GoogleFonts.sarpanch(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: purpleColor,
+                color: primaryColor,
               ),
             ),
-
             const SizedBox(height: 24),
 
             // Buttons
@@ -133,12 +136,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     },
                     label: const Text("Checkout"),
                     icon: const Icon(Icons.payment),
-                    
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:  Colors.purple,
-                      foregroundColor: Colors.white, // Text & icon color
+                      backgroundColor: checkoutButtonColor,
+                      foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      textStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -150,12 +155,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     },
                     label: const Text("Add to Cart"),
                     icon: const Icon(Icons.add_shopping_cart),
-                    
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.purple, // Text & icon color
+                      backgroundColor: addToCartButtonColor,
+                      foregroundColor: addToCartTextColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      textStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
