@@ -16,6 +16,8 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -91,7 +93,7 @@ class ProductDetailScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor,
+                    color: theme.primaryColor,
                   ),
                 ),
 
@@ -111,7 +113,7 @@ class ProductDetailScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor,
+                    color: theme.primaryColor,
                   ),
                 ),
 
@@ -122,18 +124,24 @@ class ProductDetailScreen extends StatelessWidget {
         },
       ),
 
-      // ✅ Bottom Buttons
+      // ✅ Bottom Buttons (theme-aware)
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
+            // 🔹 Add to Cart button (Outlined style)
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
                   // TODO: Add to cart logic
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white, // white background
+                  foregroundColor: theme.primaryColor, // text color
+                  side: BorderSide(
+                    color: theme.primaryColor, // border color
+                    width: 2,
+                  ),
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -145,14 +153,18 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             const SizedBox(width: 12),
+
+            // 🔹 Checkout button (Solid primary color)
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
                   // TODO: Checkout logic
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: theme.primaryColor, // primary background
+                  foregroundColor: Colors.white, // white text
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
