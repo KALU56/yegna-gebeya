@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yegna_gebeya/shared/domain/models/product.dart';
-import 'package:yegna_gebeya/shared/domain/models/user.dart'; // ✅ import your User model
+import 'package:yegna_gebeya/shared/domain/models/user.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
@@ -124,12 +124,35 @@ class ProductDetailScreen extends StatelessWidget {
         },
       ),
 
-      // ✅ Bottom Buttons (theme-aware)
+      // ✅ Bottom Buttons (Checkout left, Add to Cart right)
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            // 🔹 Add to Cart button (Outlined style)
+            // 🔹 Checkout button (left)
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  // TODO: Checkout logic
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: theme.primaryColor, // primary background
+                  foregroundColor: Colors.white, // white text
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  "Checkout",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
+
+            const SizedBox(width: 12),
+
+            // 🔹 Add to Cart button (right)
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
@@ -149,29 +172,6 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
                 child: const Text(
                   "Add to Cart",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                ),
-              ),
-            ),
-
-            const SizedBox(width: 12),
-
-            // 🔹 Checkout button (Solid primary color)
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  // TODO: Checkout logic
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.primaryColor, // primary background
-                  foregroundColor: Colors.white, // white text
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  "Checkout",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
